@@ -3,19 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <title>Tgripon 技术支持</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        h1, h2 {
+            color: #006400;
+        }
+        .section {
+            background: #fff;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .download a {
+            display: inline-block;
+            background-color: #0070c9;
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .download a:hover {
+            background-color: #005999;
+        }
+        .lang-select {
+            float: right;
+            margin: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Tgripon 技术支持</h1>
-    <p>如果您在使用过程中遇到问题，请联系我们：+86 18144910433</p>
-    <ul>
-        <li>Email: developer@tgripon.com</li>
-        <li>微信客服: WONDAFUL_GOLF1</li>
-    </ul>
-    <h2>常见问题</h2>
-    <p>Q: 如何恢复订阅？</p>
-    <p>A: 打开 App → 设置 → 恢复购买。</p>
-    <p></p>
-    <p></p>
-    <p>For technical support, please contact us via email: developer@tgripon.com</p>
+    <select class="lang-select" onchange="setLang(this.value)">
+        <option value="zh">中文</option>
+        <option value="en">English</option>
+        <option value="ko">한국어</option>
+    </select>
+
+    <h1 id="title">Tgripon 技术支持</h1>
+    
+    <div class="section contact">
+        <h2 id="contact-title">联系我们</h2>
+        <p id="contact-text">如果您在使用过程中遇到问题，请联系我们：</p>
+        <ul>
+            <li id="phone">电话: +86 18144910433</li>
+            <li id="email">Email: developer@tgripon.com</li>
+            <li id="wechat">微信客服: WONDAFUL_GOLF1</li>
+        </ul>
+    </div>
+
+    <div class="section faq">
+        <h2 id="faq-title">常见问题</h2>
+        <p><strong id="q1">Q: 如何恢复订阅？</strong></p>
+        <p id="a1">A: 打开 App → 设置 → 恢复购买。</p>
+    </div>
+
+    <div class="section download">
+        <h2 id="download-title">下载地址</h2>
+        <a id="download-link" href="https://apps.apple.com/cn/app/tgripon/id6618156264" target="_blank">前往 App Store 下载</a>
+    </div>
+
+    <div class="section intro">
+        <h2 id="intro-title">应用介绍</h2>
+        <p id="intro-1"><strong>韩国第一高尔夫好友寻找应用 — TgripOn</strong></p>
+        <p id="intro-2">最简单、最智能的方式来结交高尔夫朋友。</p>
+        <p id="intro-3">可以实时查看会员的高尔夫生活帖子。</p>
+        <p id="intro-4">通过会员筛选功能搜索适合自己的成员，添加好友并发送消息。</p>
+    </div>
+
+    <footer>
+        <p id="footer-text">For technical support, please contact us via email: developer@tgripon.com</p>
+    </footer>
+
+    <script>
+        const texts = {
+            zh: {
+                title: "Tgripon 技术支持",
+                contactTitle: "联系我们",
+                contactText: "如果您在使用过程中遇到问题，请联系我们：",
+                phone: "电话: +86 18144910433",
+                email: "Email: developer@tgripon.com",
+                wechat: "微信客服: WONDAFUL_GOLF1",
+                faqTitle: "常见问题",
+                q1: "Q: 如何恢复订阅？",
+                a1: "A: 打开 App → 设置 → 恢复购买。",
+                downloadTitle: "下载地址",
+                downloadLink: "前往 App Store 下载",
+                introTitle: "应用介绍",
+                intro1: "韩国第一高尔夫好友寻找应用 — TgripOn",
+                intro2: "最简单、最智能的方式来结交高尔夫朋友。",
+                intro3: "可以实时查看会员的高尔夫生活帖子。",
+                intro4: "通过会员筛选功能搜索适合自己的成员，添加好友并发送消息。",
+                footer: "如需技术支持，请通过邮箱联系我们: developer@tgripon.com"
+            },
+            en: {
+                title: "Tgripon Support",
+                contactTitle: "Contact Us",
+                contactText: "If you encounter any issues while using the app, please contact us:",
+                phone: "Phone: +86 18144910433",
+                email: "Email: developer@tgripon.com",
+                wechat: "WeChat Support: WONDAFUL_GOLF1",
+                faqTitle: "FAQ",
+                q1: "Q: How to restore subscription?",
+                a1: "A: Open App → Settings → Restore Purchases.",
+                downloadTitle: "Download",
+                downloadLink: "Go to App Store",
+                introTitle: "App Introduction",
+                intro1: "Korea's No.1 Golf Friend Finder — TgripOn",
+                intro2: "The simplest and smartest way to meet golf friends.",
+                intro3: "View members’ golf lifestyle posts in real time.",
+                intro4: "Search for suitable members with filters, add friends, and send messages.",
+                footer: "For technical support, please contact us via email: developer@tgripon.com"
+            },
+            ko: {
+                title: "Tgripon 기술 지원",
+                contactTitle: "문의하기",
+                contactText: "사용 중 문제가 발생하면 아래로 연락해 주세요:",
+                phone: "전화: +86 18144910433",
+                email: "이메일: developer@tgripon.com",
+                wechat: "위챗 고객센터: WONDAFUL_GOLF1",
+                faqTitle: "자주 묻는 질문",
+                q1: "Q: 구독을 어떻게 복원하나요?",
+                a1: "A: 앱 실행 → 설정 → 구매 복원.",
+                downloadTitle: "다운로드",
+                downloadLink: "App Store 이동",
+                introTitle: "앱 소개",
+                intro1: "대한민국 No.1 골프 친구 찾기 앱 — TgripOn",
+                intro2: "가장 쉽고 스마트하게 골프 친구를 만나는 방법.",
+                intro3: "회원들의 골프 라이프 포스트를 실시간으로 확인할 수 있습니다.",
+                intro4: "회원 필터링을 통해 나에게 맞는 멤버를 검색하고 친구 추가 및 메시지를 보낼 수 있습니다.",
+                footer: "기술 지원은 이메일로 문의해 주세요: developer@tgripon.com"
+            }
+        };
+
+        function setLang(lang) {
+            document.getElementById("title").innerText = texts[lang].title;
+            document.getElementById("contact-title").innerText = texts[lang].contactTitle;
+            document.getElementById("contact-text").innerText = texts[lang].contactText;
+            document.getElementById("phone").innerText = texts[lang].phone;
+            document.getElementById("email").innerText = texts[lang].email;
+            document.getElementById("wechat").innerText = texts[lang].wechat;
+            document.getElementById("faq-title").innerText = texts[lang].faqTitle;
+            document.getElementById("q1").innerText = texts[lang].q1;
+            document.getElementById("a1").innerText = texts[lang].a1;
+            document.getElementById("download-title").innerText = texts[lang].downloadTitle;
+            document.getElementById("download-link").innerText = texts[lang].downloadLink;
+            document.getElementById("intro-title").innerText = texts[lang].introTitle;
+            document.getElementById("intro-1").innerText = texts[lang].intro1;
+            document.getElementById("intro-2").innerText = texts[lang].intro2;
+            document.getElementById("intro-3").innerText = texts[lang].intro3;
+            document.getElementById("intro-4").innerText = texts[lang].intro4;
+            document.getElementById("footer-text").innerText = texts[lang].footer;
+        }
+
+        // 默认显示中文
+        setLang("zh");
+    </script>
 </body>
 </html>
